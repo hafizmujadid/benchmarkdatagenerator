@@ -13,7 +13,7 @@ public class AuctionGenerator extends Thread {
     Producer<Long,String> auctionProducer;
     AtomicInteger seq;
 
-    public AuctionGenerator(AtomicInteger seq) {
+    AuctionGenerator(AtomicInteger seq) {
         this.seq = seq;
         limiter = RateLimiter.create(Constants.INPUT_RATE);
         auctionProducer = KafkaSender.getPersonProducer("auction");
@@ -26,7 +26,7 @@ public class AuctionGenerator extends Thread {
                 int id = seq.getAndIncrement();
                 long start_time = System.currentTimeMillis();
                 long expire_time = start_time + RandomUtils.nextInt(1,60000);
-
+                //40 bytes
                 Auction auction = new Auction(start_time,id,RandomUtils.nextInt(1,100000),
                         RandomUtils.nextInt(1,SeqGenerators.person.get()), //person id
                         RandomUtils.nextDouble(10,6000), //price b/w 10 and 6000

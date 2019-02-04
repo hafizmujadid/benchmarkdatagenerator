@@ -21,14 +21,15 @@ public class PersonGenerator extends Thread {
 
     @Override
     public void run() {
-        while (seq.get()<Constants.RECORD_COUNT){
+        while (seq.get()<Constants.PERSON_RECORD_COUNT){
             if (limiter.tryAcquire()) {
                 int id = seq.getAndIncrement();
-                Person person = new Person(id, RandomStringUtils.randomAlphabetic(20),
-                        RandomStringUtils.randomAlphabetic(20)+"@gmail.com",
-                        RandomStringUtils.randomAlphabetic(12),
+                //200 bytes
+                Person person = new Person(id, RandomStringUtils.randomAlphabetic(58),
+                        RandomStringUtils.randomAlphabetic(40)+"@gmail.com",
                         RandomStringUtils.randomAlphabetic(20),
-                        RandomStringUtils.randomAlphabetic(20),
+                        RandomStringUtils.randomAlphabetic(30),
+                        RandomStringUtils.randomAlphabetic(40),
                         System.currentTimeMillis());
                 ProducerRecord<Long,String> record= new ProducerRecord<Long, String>(Constants.TOPIC_PERSON,
                         Thread.currentThread().getId(),person.toString());
