@@ -23,7 +23,7 @@ public class PersonGenerator extends Thread {
     public void run() {
         while (seq.get()<Constants.PERSON_RECORD_COUNT){
             if (limiter.tryAcquire()) {
-                int id = seq.getAndIncrement();
+                long id = seq.getAndIncrement();
                 //200 bytes
                 Person person = new Person(id, RandomStringUtils.randomAlphabetic(58),
                         RandomStringUtils.randomAlphabetic(40)+"@gmail.com",

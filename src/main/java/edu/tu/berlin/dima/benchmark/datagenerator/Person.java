@@ -2,7 +2,7 @@ package edu.tu.berlin.dima.benchmark.datagenerator;
 
 public class Person {
 
-    private int personId;
+    private long personId;
     private String name;
     private String email;
     private String creditCard;
@@ -10,7 +10,7 @@ public class Person {
     private String state;
     private long timestamp;
 
-    public Person(int personId, String name, String email, String creditCard, String city, String state, long timestamp) {
+    public Person(long personId, String name, String email, String creditCard, String city, String state, long timestamp) {
         this.personId = personId;
         this.name = name;
         this.email = email;
@@ -20,11 +20,11 @@ public class Person {
         this.timestamp = timestamp;
     }
 
-    public int getPersonId() {
+    public long getPersonId() {
         return personId;
     }
 
-    public void setPersonId(int personId) {
+    public void setPersonId(long personId) {
         this.personId = personId;
     }
 

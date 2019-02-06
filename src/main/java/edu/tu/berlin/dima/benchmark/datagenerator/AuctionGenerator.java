@@ -23,12 +23,12 @@ public class AuctionGenerator extends Thread {
     public void run() {
         while (seq.get()<Constants.RECORD_COUNT){
             if (limiter.tryAcquire()) {
-                int id = seq.getAndIncrement();
+                long id = seq.getAndIncrement();
                 long start_time = System.currentTimeMillis();
                 long expire_time = start_time + RandomUtils.nextInt(1,60000);
                 //40 bytes
                 Auction auction = new Auction(start_time,id,RandomUtils.nextInt(1,100000),
-                        RandomUtils.nextInt(1,SeqGenerators.person.get()), //person id
+                        RandomUtils.nextLong(1,SeqGenerators.person.get()), //person id
                         RandomUtils.nextDouble(10,6000), //price b/w 10 and 6000
                         RandomUtils.nextInt(1,20),expire_time); //categories 1,20
                 ProducerRecord<Long,String> record= new ProducerRecord<Long, String>(Constants.TOPIC_AUCTION,

@@ -25,9 +25,9 @@ public class BidGenerator extends Thread{
     public void run() {
         while (seq.get()<Constants.RECORD_COUNT){
             if (limiter.tryAcquire()) {
-                int id = seq.getAndIncrement();
+                long id = seq.getAndIncrement();
                 Bid bid = new Bid(id, RandomUtils.nextDouble()%300,
-                        RandomUtils.nextInt(1,SeqGenerators.person.get()),
+                        RandomUtils.nextLong(1,SeqGenerators.person.get()),
                         System.currentTimeMillis());
                 ProducerRecord<Long,String> record= new ProducerRecord<Long, String>(Constants.TOPIC_BID,
                         Thread.currentThread().getId(),bid.toString());

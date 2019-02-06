@@ -2,14 +2,14 @@ package edu.tu.berlin.dima.benchmark.datagenerator;
 
 public class Auction {
     private long timestamp;
-    private int auctionId;
-    private int itemId;
-    private int sellerId;
+    private long auctionId;
+    private long itemId;
+    private long sellerId;
     private double initialPrice;
     private int categoryId;
     private long expireDate;
 
-    public Auction(long timestamp, int auctionId, int itemId, int sellerId, double initialPrice, int categoryId, long expireDate) {
+    public Auction(long timestamp, long auctionId, long itemId, long sellerId, double initialPrice, int categoryId, long expireDate) {
         this.timestamp = timestamp;
         this.auctionId = auctionId;
         this.itemId = itemId;
@@ -27,7 +27,7 @@ public class Auction {
         this.timestamp = timestamp;
     }
 
-    public int getAuctionId() {
+    public long getAuctionId() {
         return auctionId;
     }
 
@@ -35,7 +35,7 @@ public class Auction {
         this.auctionId = auctionId;
     }
 
-    public int getItemId() {
+    public long getItemId() {
         return itemId;
     }
 
@@ -43,7 +43,7 @@ public class Auction {
         this.itemId = itemId;
     }
 
-    public int getSellerId() {
+    public long getSellerId() {
         return sellerId;
     }
 

@@ -1,19 +1,19 @@
 package edu.tu.berlin.dima.benchmark.datagenerator;
 
 public class Bid {
-    private int auctionId;
+    private long auctionId;
     private double price;
-    private int bidderId;
+    private long bidderId;
     private long timestamp;
 
-    public Bid(int auctionId, double price, int bidderId, long timestamp) {
+    public Bid(long auctionId, double price, long bidderId, long timestamp) {
         this.auctionId = auctionId;
         this.price = price;
         this.bidderId = bidderId;
         this.timestamp = timestamp;
     }
 
-    public int getAuctionId() {
+    public long getAuctionId() {
         return auctionId;
     }
 
@@ -29,7 +29,7 @@ public class Bid {
         this.price = price;
     }
 
-    public int getBidderId() {
+    public long getBidderId() {
         return bidderId;
     }
 
