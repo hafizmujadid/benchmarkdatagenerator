@@ -21,7 +21,8 @@ public class PersonGenerator extends Thread {
 
     @Override
     public void run() {
-        while (seq.get()<Constants.PERSON_RECORD_COUNT){
+        //while (seq.get()<Constants.PERSON_RECORD_COUNT){
+        while (true){
             if (limiter.tryAcquire()) {
                 long id = seq.getAndIncrement();
                 //200 bytes
@@ -37,6 +38,5 @@ public class PersonGenerator extends Thread {
                 System.out.println(id);
             }
         }
-        System.out.println("exit");
     }
 }

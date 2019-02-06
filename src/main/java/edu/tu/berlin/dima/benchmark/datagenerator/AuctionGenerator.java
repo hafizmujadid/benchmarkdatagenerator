@@ -21,7 +21,8 @@ public class AuctionGenerator extends Thread {
 
     @Override
     public void run() {
-        while (seq.get()<Constants.RECORD_COUNT){
+        //while (seq.get()<Constants.RECORD_COUNT){
+        while (true){
             if (limiter.tryAcquire()) {
                 long id = seq.getAndIncrement();
                 long start_time = System.currentTimeMillis();
@@ -38,7 +39,6 @@ public class AuctionGenerator extends Thread {
                 System.out.println(id);
             }
         }
-        System.out.println("exit");
     }
 
 }
