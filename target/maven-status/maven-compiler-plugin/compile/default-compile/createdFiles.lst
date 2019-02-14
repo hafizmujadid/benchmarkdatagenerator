@@ -1,0 +1,11 @@
+edu/tu/berlin/dima/benchmark/datagenerator/CustomPartitioner.class
+edu/tu/berlin/dima/benchmark/datagenerator/Auction.class
+edu/tu/berlin/dima/benchmark/datagenerator/Bid.class
+edu/tu/berlin/dima/benchmark/datagenerator/PersonGenerator.class
+edu/tu/berlin/dima/benchmark/datagenerator/SeqGenerators.class
+edu/tu/berlin/dima/benchmark/datagenerator/App.class
+edu/tu/berlin/dima/benchmark/datagenerator/BidGenerator.class
+edu/tu/berlin/dima/benchmark/datagenerator/Person.class
+edu/tu/berlin/dima/benchmark/datagenerator/Constants.class
+edu/tu/berlin/dima/benchmark/datagenerator/KafkaSender.class
+edu/tu/berlin/dima/benchmark/datagenerator/AuctionGenerator.class
