@@ -16,7 +16,17 @@ public class App {
         AtomicInteger person = SeqGenerators.person;
         AtomicInteger auction = SeqGenerators.auction;
         AtomicInteger bid = SeqGenerators.bid;
+        AtomicInteger items = SeqGenerators.items;
+        AtomicInteger categories = SeqGenerators.items;
 
+        for(int i=1;i<10000;i++){
+            items.incrementAndGet();
+        }
+
+
+        for(int i=1;i<10000;i++){
+            categories.incrementAndGet();
+        }
 
         for(int i=0;i<NUM_PERSON_GENERATORS;i++){
             personGenerators[i]= new PersonGenerator(person);

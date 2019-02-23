@@ -10,7 +10,7 @@ public class Person {
     private String state;
     private long timestamp;
 
-    public Person(long personId, String name, String email, String creditCard, String city, String state, long timestamp) {
+    Person(long personId, String name, String email, String creditCard, String city, String state, long timestamp) {
         this.personId = personId;
         this.name = name;
         this.email = email;
