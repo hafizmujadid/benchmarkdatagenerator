@@ -35,10 +35,8 @@ public class AuctionGenerator extends Thread {
                 ProducerRecord<Long,String> record= new ProducerRecord<Long, String>(Constants.TOPIC_AUCTION,
                         Thread.currentThread().getId(),auction.toString());
                 auctionProducer.send(record);
-
                 System.out.println(id);
             }
         }
     }
-
 }
