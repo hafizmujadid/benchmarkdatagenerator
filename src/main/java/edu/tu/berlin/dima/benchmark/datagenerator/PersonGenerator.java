@@ -62,7 +62,7 @@ public class PersonGenerator extends Thread {
     public PersonGenerator(AtomicInteger seq) {
         this.seq = seq;
         limiter = RateLimiter.create(Constants.INPUT_RATE);
-        personProducer = KafkaSender.getPersonProducer("person");
+        //personProducer = KafkaSender.getPersonProducer("person");
     }
 
     @Override
