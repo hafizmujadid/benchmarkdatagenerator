@@ -4,9 +4,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class App {
 
-    public static final int NUM_PERSON_GENERATORS =5;
-    public static final int NUM_AUCTION_GENERATORS =5;
-    public static final int NUM_BID_GENERATORS =5;
+    private static final int NUM_PERSON_GENERATORS =5;
+    private static final int NUM_AUCTION_GENERATORS =5;
+    private static final int NUM_BID_GENERATORS =5;
 
     public static void main(String[] args){
         Thread [] personGenerators = new PersonGenerator[NUM_PERSON_GENERATORS];

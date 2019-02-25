@@ -68,6 +68,7 @@ public class PersonGenerator extends Thread {
     @Override
     public void run() {
         //while (seq.get()<Constants.PERSON_RECORD_COUNT){
+        long i =1;
         while (true){
             if (limiter.tryAcquire()) {
                 long id = seq.getAndIncrement();
@@ -81,6 +82,14 @@ public class PersonGenerator extends Thread {
                 ProducerRecord<Long,String> record= new ProducerRecord<Long, String>(Constants.TOPIC_PERSON,
                         Thread.currentThread().getId(),person.toString());
                 personProducer.send(record);
+                if(i%100==0) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                i+=1;
                 System.out.println(id);
             }
         }
