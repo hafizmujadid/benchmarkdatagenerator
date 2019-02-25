@@ -3,7 +3,7 @@ package edu.tu.berlin.dima.benchmark.datagenerator;
 class Constants {
     static int INPUT_RATE=10000;
 
-	static String BOOTSTRAP_SERVERS = "localhost:9092";
+	static String BOOTSTRAP_SERVERS = "ibm-power-6:9092";
 
 	static String TOPIC_PERSON="person";
 	static String TOPIC_AUCTION="auction";
