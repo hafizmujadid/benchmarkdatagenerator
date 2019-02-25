@@ -72,7 +72,7 @@ public class PersonGenerator extends Thread {
             if (limiter.tryAcquire()) {
                 long id = seq.getAndIncrement();
                 //200 bytes
-                Person person = new Person(id, RandomStringUtils.randomAlphabetic(58),
+                /*Person person = new Person(id, RandomStringUtils.randomAlphabetic(58),
                         RandomStringUtils.randomAlphabetic(40)+"@gmail.com",
                         RandomStringUtils.randomAlphabetic(20),
                         cities[RandomUtils.nextInt(0,cityCount)],
@@ -81,7 +81,7 @@ public class PersonGenerator extends Thread {
                 ProducerRecord<Long,String> record= new ProducerRecord<Long, String>(Constants.TOPIC_PERSON,
                         Thread.currentThread().getId(),person.toString());
                 personProducer.send(record);
-                System.out.println(id);
+                System.out.println(id);*/
             }
         }
     }
