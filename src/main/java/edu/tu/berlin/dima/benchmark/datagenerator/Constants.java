@@ -1,7 +1,7 @@
 package edu.tu.berlin.dima.benchmark.datagenerator;
 
 class Constants {
-    static int INPUT_RATE=30000;
+    static int INPUT_RATE=3000;
 
 	static String BOOTSTRAP_SERVERS = "ibm-power-6:9092";
 
