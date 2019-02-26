@@ -28,10 +28,10 @@ public class App {
             categories.incrementAndGet();
         }*/
 
-        for(int i=0;i<NUM_PERSON_GENERATORS;i++){
+        /*for(int i=0;i<NUM_PERSON_GENERATORS;i++){
             personGenerators[i]= new PersonGenerator(person);
             personGenerators[i].start();
-        }
+        }*/
 		
 		for(int i=0;i<NUM_AUCTION_GENERATORS;i++){
             auctionGenerators[i]= new AuctionGenerator(auction);
