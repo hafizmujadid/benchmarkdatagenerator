@@ -62,7 +62,7 @@ public class PersonGenerator extends Thread {
     public PersonGenerator(AtomicInteger seq) {
         this.seq = seq;
         limiter = RateLimiter.create(Constants.INPUT_RATE);
-        //personProducer = KafkaSender.getPersonProducer("person");
+        personProducer = KafkaSender.getPersonProducer("person");
     }
 
     @Override
@@ -72,16 +72,16 @@ public class PersonGenerator extends Thread {
             if (limiter.tryAcquire()) {
                 long id = seq.getAndIncrement();
                 //200 bytes
-                /*Person person = new Person(id, RandomStringUtils.randomAlphabetic(58),
+                Person person = new Person(id, RandomStringUtils.randomAlphabetic(58),
                         RandomStringUtils.randomAlphabetic(40)+"@gmail.com",
-                        RandomStringUtils.randomAlphabetic(20),
+                        RandomStringUtils.randomAlphabetic(100),
                         cities[RandomUtils.nextInt(0,cityCount)],
-                        RandomStringUtils.randomAlphabetic(40),
+                        RandomStringUtils.randomAlphabetic(100),
                         System.currentTimeMillis());
                 ProducerRecord<Long,String> record= new ProducerRecord<Long, String>(Constants.TOPIC_PERSON,
                         Thread.currentThread().getId(),person.toString());
                 personProducer.send(record);
-                System.out.println(id);*/
+                System.out.println(id);
             }
         }
     }
