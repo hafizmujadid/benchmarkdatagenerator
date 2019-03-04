@@ -67,6 +67,7 @@ public class PersonGenerator extends Thread {
 
     @Override
     public void run() {
+        int index=0;
         //while (seq.get()<Constants.PERSON_RECORD_COUNT){
         while (true){
             if (limiter.tryAcquire()) {
@@ -75,7 +76,7 @@ public class PersonGenerator extends Thread {
                 Person person = new Person(id, RandomStringUtils.randomAlphabetic(58),
                         RandomStringUtils.randomAlphabetic(40)+"@gmail.com",
                         RandomStringUtils.randomAlphabetic(100),
-                        cities[RandomUtils.nextInt(0,cityCount)],
+                        cities[index%cityCount],
                         RandomStringUtils.randomAlphabetic(100),
                         System.currentTimeMillis());
                 ProducerRecord<Long,String> record= new ProducerRecord<Long, String>(Constants.TOPIC_PERSON,
@@ -83,6 +84,9 @@ public class PersonGenerator extends Thread {
                 personProducer.send(record);
                 System.out.println(id);
             }
+            index+=1;
+            if(index>=cityCount)
+                index=0;
         }
     }
 }
