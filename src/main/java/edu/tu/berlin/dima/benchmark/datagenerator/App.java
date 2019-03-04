@@ -10,12 +10,12 @@ public class App {
 
     public static void main(String[] args){
         Thread [] personGenerators = new PersonGenerator[NUM_PERSON_GENERATORS];
-		Thread [] auctionGenerators = new AuctionGenerator[NUM_AUCTION_GENERATORS];
-		//Thread [] bidGenerators = new BidGenerator[NUM_BID_GENERATORS];
+		//Thread [] auctionGenerators = new AuctionGenerator[NUM_AUCTION_GENERATORS];
+		Thread [] bidGenerators = new BidGenerator[NUM_BID_GENERATORS];
 
         AtomicInteger person = SeqGenerators.person;
-        AtomicInteger auction = SeqGenerators.auction;
-        //AtomicInteger bid = SeqGenerators.bid;
+        //AtomicInteger auction = SeqGenerators.auction;
+        AtomicInteger bid = SeqGenerators.bid;
         //AtomicInteger items = SeqGenerators.items;
         //AtomicInteger categories = SeqGenerators.items;
 
@@ -33,15 +33,15 @@ public class App {
             personGenerators[i].start();
         }
 		
-		for(int i=0;i<NUM_AUCTION_GENERATORS;i++){
+		/*for(int i=0;i<NUM_AUCTION_GENERATORS;i++){
             auctionGenerators[i]= new AuctionGenerator(auction);
             auctionGenerators[i].start();
-        }
+        }*/
 		
-		/*for(int i=0;i<NUM_BID_GENERATORS;i++){
+		for(int i=0;i<NUM_BID_GENERATORS;i++){
             bidGenerators[i]= new BidGenerator(bid);
             bidGenerators[i].start();
-        }*/
+        }
 
 
 
