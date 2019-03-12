@@ -18,7 +18,7 @@ public class KafkaSender {
         Properties props = new Properties();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
                 Constants.BOOTSTRAP_SERVERS);
-        //props.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, ParallelismPartitioner.class.getName());
+        props.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, EvenOddKafkaPartitioner.class.getName());
         props.put(ProducerConfig.CLIENT_ID_CONFIG, clientId);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
                 LongSerializer.class.getName());

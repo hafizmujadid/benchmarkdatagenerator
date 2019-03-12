@@ -1,5 +1,9 @@
 package edu.tu.berlin.dima.benchmark.datagenerator;
 
+/**
+ * Constants to configure input rate and kafka server etc.
+ * @author mujadid
+ */
 class Constants {
     static int INPUT_RATE=6000;
 
@@ -8,6 +12,4 @@ class Constants {
 	static String TOPIC_PERSON="person";
 	static String TOPIC_AUCTION="auction";
 	static String TOPIC_BID="bid";
-	static int RECORD_COUNT= 50000;
-	static int PERSON_RECORD_COUNT= 50000;
 }

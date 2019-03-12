@@ -8,22 +8,33 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Bid type events generator
+ * @author mujadid
+ */
 public class BidGenerator extends Thread{
 
-	RateLimiter limiter;
+	RateLimiter limiter; //controls input rate
 
-    AtomicInteger seq;
-    Producer<Long,String> bidProducer;
+    AtomicInteger seq; //sequence number for bid events
+    Producer<Long,String> bidProducer; //kafka producer
 
+
+    /**
+     * Constructor
+     * @param seq
+     */
     public BidGenerator(AtomicInteger seq) {
         this.seq = seq;
         limiter = RateLimiter.create(Constants.INPUT_RATE);
         bidProducer = KafkaSender.getPersonProducer("bid");
     }
 
+    /**
+     * starts thread to produce events
+     */
     @Override
     public void run() {
-        //while (seq.get()<Constants.RECORD_COUNT){
         while (true){
             if (limiter.tryAcquire()) {
                 long id = seq.getAndIncrement();
@@ -36,7 +47,6 @@ public class BidGenerator extends Thread{
                 System.out.println(id);
             }
         }
-        //System.out.println("exit");
     }
 
 

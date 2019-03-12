@@ -2,12 +2,15 @@ package edu.tu.berlin.dima.benchmark.datagenerator;
 
 import com.google.common.util.concurrent.RateLimiter;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.RandomUtils;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Person Generator class
+ * @author mujadid
+ */
 public class PersonGenerator extends Thread {
     RateLimiter limiter;
 
@@ -68,7 +71,6 @@ public class PersonGenerator extends Thread {
     @Override
     public void run() {
         int index=0;
-        //while (seq.get()<Constants.PERSON_RECORD_COUNT){
         while (true){
             if (limiter.tryAcquire()) {
                 long id = seq.getAndIncrement();
